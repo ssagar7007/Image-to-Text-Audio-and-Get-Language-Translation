@@ -1,18 +1,21 @@
-
 # Image to Text, Audio and Get Language Translation
 
 
 •	A web Application that uses Google Tesseract, gTTS, Python, Flask, Computer Vision, OpenCV .
 •	To convert image into multiple languages and get text and audio files of it.
  
- Choose the image with text to be translated or drop it in the drop box.
- Select the language in which you want to translate the text in image.
- Click on translate button.
- It will translate the text in the selected language.
- It will also output the text in audio format.
+ -> Choose the image with text to be translated or drop it in the drop box.
+
+ -> Select the language in which you want to translate the text in image.
+
+ -> Click on translate button.
+
+ -> It will translate the text in the selected language.
+
+ -> It will also output the text in audio format.
  
  
- To use this application the following configuration should be followed---
+ # To use this application the following configuration should be followed---
   
 
 1- Create virtual environment by command:

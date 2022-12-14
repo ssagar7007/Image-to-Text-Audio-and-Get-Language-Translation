@@ -15,7 +15,7 @@
  -> It will also output the text in audio format.
  
  
- # To use this application the following configuration should be followed---
+ # To use this application the following Steps should be followed---
   
 
 1- Create virtual environment by command:

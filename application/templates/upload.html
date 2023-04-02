@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+ 
+  <div class="text-center mt-5 ">
+     <h2 id="uploadHeading">Drop Image File To Get Translate</h2>
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <div id="uploadBox" class="text-center">
+      {{ dropzone.create(action='upload') }}
+    </div>
+  </div>
+  {{ dropzone.load_js() }}
+  {{ dropzone.config() }}
+
+{% endblock %}

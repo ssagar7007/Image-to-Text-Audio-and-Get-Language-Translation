@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block content %}
+ 
+  <div class="text-center mt-4 ">
+     <h2 class="mt-5" id="heading">Click Start to speak something</h2>
+  </div>
+  <!-- Button trigger modal and mic icon -->
+  <div class="d-flex justify-content-center mic">
+    <i class="fa-sharp fa-solid fa-microphone text-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" id="speechToText" onclick="record()"></i>
+  </div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="containerModal">
+        <button id="speech" class="btnModal">
+          <div class="pulse-ring"></div>
+          <i class="fa fa-microphone" aria-hidden="true"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+  <!-- Below is the script for voice recognition and conversion to text-->
+  <script>
+      function record() {
+          var recognition = new webkitSpeechRecognition();
+          recognition.lang = "en-GB";
+          recognition.onstart = function() { 
+            console.log("listening started.....")
+           }
+           recognition.onerror = function(event) { 
+            console.log("error occurred ...")
+            }
+            recognition.onend = function() { 
+              console.log("listening end....")
+             }
+
+          recognition.onresult = function(event) {
+        
+              var data = event.results[0][0].transcript;
+              console.log(data)
+              var request = new XMLHttpRequest();
+              request.open("POST","http://127.0.0.1:5000/speech");
+              request.setRequestHeader("Content-Type","application/json");
+              request.send( JSON.stringify({text : data}));
+              request.addEventListener("load", function()
+              {
+                if(request.status !== 200)
+                {
+                  console.log("Error!!!");
+                }
+                else
+                {
+                  console.log("added!!!");
+                  location.replace("http://127.0.0.1:5000/decoded")
+                }
+              })
+              
+              // document.getElementById('speechToText').value = event.results[0][0].transcript;
+          }
+          recognition.start();
+
+      }
+  </script>
+
+{% endblock %}

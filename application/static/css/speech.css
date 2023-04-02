@@ -1,0 +1,19 @@
+#speechToText{
+    font-size:80px ;
+    cursor: pointer;
+}
+
+.mic{
+    position:relative;
+    top: 20vh;
+}
+#heading{
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700;
+    font-size: 50px;
+}
+#uploadHeading{
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700;
+    font-size: 50px;
+}
